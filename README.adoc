@@ -1,6 +1,7 @@
 = VPN
 
-link:docs/DESGIN.adoc[Design]
+link:docs/DESIGN.adoc[Design]
+
 link:docs/schema.d2[Schema]
 
 AWS allows assignments of private addresses to elastic network interfaces in
