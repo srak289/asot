@@ -1,0 +1,36 @@
+elastic_ipv4address: {
+    shape: sql_table
+    id: int {constraint: primary_key}
+    allocation_id: str {constraint: unique}
+    association_id: str
+    tags: str
+}
+
+wireguard_network: {
+    shape: sql_table
+    id: int {constraint: primary_key}
+    interface_name: str {constraint: NOT NULL}
+    ipv4network: str {constraint: [unique; NOT NULL]}
+}
+
+wireguard_endpoint: {
+    shape: sql_table
+    id: int {constraint: primary_key}
+    public_key: str {constraint: [unique; NOT NULL]}
+    ipv4address: str {constraint: NOT NULL}
+    allowed_ips: str {constraint: NOT NULL}
+    listen_port: int
+
+    wireguard_network_id: int {constraint: foreign_key}
+}
+
+ipv4address_map: {
+    shape: sql_table
+    elastic_ipv4address_id: int {constraint: foreign_key}
+    wireguard_endpoint_id: int {constraint: foreign_key}
+}
+
+wireguard_endpoint.wireguard_network_id -- wireguard_network.id
+
+elastic_ipv4address.id -- ipv4address_map.elastic_ipv4address_id
+wireguard_endpoint.id -- ipv4address_map.wireguard_endpoint_id

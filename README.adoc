@@ -1,4 +1,7 @@
-= Configure VPN
+= VPN
+
+link:docs/DESGIN.adoc[Design]
+link:docs/schema.d2[Schema]
 
 AWS allows assignments of private addresses to elastic network interfaces in
 /28 blocks. The prefixes are directed to the interface allowing you to use all
