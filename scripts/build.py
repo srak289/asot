@@ -26,7 +26,7 @@ r = ec2.run_instances(
             },
         },
     ],
-    ImageId="ami-0b40807e5dc1afecf",
+    ImageId="ami-0bb7d855677353076",
     InstanceType="t3.micro",
     KeyName="srak",
     UserData=userdata,
@@ -37,7 +37,7 @@ r = ec2.run_instances(
             "AssociatePublicIpAddress": False,
             "DeleteOnTermination": True,
             "DeviceIndex": 0,
-            "Description": "vpn.devstack.ninja.",
+            "Description": "vpn.ngnh.org.",
             "Groups": ["sg-06c2fb84dea98006b"],
             "SubnetId": "subnet-07fa2b2152939dae4",
             "PrivateIpAddress": "172.31.16.5",
@@ -49,7 +49,7 @@ r = ec2.run_instances(
             "Tags": [
                 {
                     "Key": "Name",
-                    "Value": "vpn.devstack.ninja."
+                    "Value": "vpn.ngnh.org."
                 },
             ]
         },
@@ -92,16 +92,16 @@ ec2.get_waiter("instance_running").wait(InstanceIds=[instance_id])
 print(f"Assigning addresses to instance")
 ec2.associate_address(
     NetworkInterfaceId=interface_id,
-    AllocationId=ips_by_name["vpn.devstack.ninja."]["AllocationId"],
+    AllocationId=ips_by_name["vpn.ngnh.org."]["AllocationId"],
     PrivateIpAddress="172.31.16.5",
 )
 ec2.associate_address(
     NetworkInterfaceId=interface_id,
-    AllocationId=ips_by_name["ubuntu.devstack.ninja."]["AllocationId"],
+    AllocationId=ips_by_name["bigmomma.ngnh.org."]["AllocationId"],
     PrivateIpAddress="172.31.16.17",
 )
 ec2.associate_address(
     NetworkInterfaceId=interface_id,
-    AllocationId=ips_by_name["alma.devstack.ninja."]["AllocationId"],
+    AllocationId=ips_by_name["bigpoppa.ngnh.org."]["AllocationId"],
     PrivateIpAddress="172.31.16.18",
 )

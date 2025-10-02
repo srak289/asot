@@ -25,7 +25,7 @@ class ElasticIPv4Address(Base):
 #     """
 #     instance_id: Mapped[str] = mapped_column(unique=True)
 #     tags: Mapped[str] = mapped_column(nullable=True)
-# 
+
 # class ElasticInterface(Base):
 #     __tablename__ = "elastic_interface"
 #     """Represent an AWS EC2 ENI attached to a :class:`Machine`
@@ -35,7 +35,7 @@ class ElasticIPv4Address(Base):
 #     region: Mapped[str] = mapped_column(nullable=True)
 #     description: Mapped[str] = mapped_column(nullable=True)
 #     ipv4addresses: Mapped[List[IPv4Address] | None] = mapped_column(nullable=True)
-#     ipv4prefixes: Mapped[List[IPv4Address] | None] = mapped_column(nullable=True)
+#     ipv4prefixes: Mapped[List[IPv4Network] | None] = mapped_column(nullable=True)
 
 
 # One network per tunnel interface

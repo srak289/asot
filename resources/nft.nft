@@ -1,0 +1,11 @@
+table ip asot {
+	chain prerouting {
+		type nat hook prerouting priority dstnat; policy accept;
+		ip daddr 172.31.16.17 meta mark set 0xdeadbeef dnat to 10.0.0.2
+	}
+
+	chain postrouting {
+		type nat hook postrouting priority srcnat; policy accept;
+		meta mark 0xdeadbeef snat to 10.0.0.1
+	}
+}

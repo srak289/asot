@@ -1,0 +1,11 @@
+FROM python:3.13-slim
+
+RUN python3 -m pip install mako pyyaml sqlalchemy tornado
+
+RUN mkdir /srv
+
+COPY ./asot /srv/asot
+
+WORKDIR /srv
+
+CMD ["python3", "-m", "asot.server"]

@@ -1,0 +1,11 @@
+[NetDev]
+Name=wg0
+Kind=wireguard
+
+[WireGuard]
+PrivateKey=
+ListenPort=443
+
+[WireGuardPeer]
+PublicKey=
+AllowedIPs=10.0.0.2/32,172.31.16.0/27
